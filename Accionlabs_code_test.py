@@ -90,8 +90,9 @@ for line in sys.stdin:
     prev_line = line
 
 """For Handling last line"""
-first_char = prev_line.split()[0]
-if re.match("\.+", first_char):
-    print re.sub(dot_pat, indent_count + "- ", prev_line)
-elif re.match("\*+", first_char):
-    print re.sub(star_pat, "%s " % num_count, prev_line)
+if prev_line:
+    first_char = prev_line.split()[0]
+    if re.match("\.+", first_char):
+        print re.sub(dot_pat, indent_count + "- ", prev_line)
+    elif re.match("\*+", first_char):
+        print re.sub(star_pat, "%s " % num_count, prev_line)
